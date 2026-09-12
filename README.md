@@ -14,6 +14,21 @@ aphasia is while they wait.
 The name is a family joke. "SOX" reads as "socks" — which is roughly what it
 feels like to reach for one word and have a different one arrive.
 
+<table>
+  <tr>
+    <td align="center" width="25%"><img src="docs/screenshots/home.jpg" alt="Home screen: a red Emergency bar pinned under the title, then categories as full-width rows ranked by phrase count, and a red Say Something bar at the bottom." width="200"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/library.jpg" alt="Library screen: a search field, Add a phrase and Sync buttons, and phrases grouped under category headers, each with a delete button." width="200"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/say-something.jpg" alt="Say Something screen with 'How are you doing?' typed into a large text field and a Speak It button." width="200"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/say-something-waiting.jpg" alt="Say Something mid-request: three stages listed, the first active, an indeterminate progress bar, and a note that the first sentence after a quiet spell takes about a minute." width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><b>Home.</b> Emergency pinned; categories ranked by size.</sub></td>
+    <td align="center"><sub><b>Library.</b> Grouped, searchable, for whoever maintains it.</sub></td>
+    <td align="center"><sub><b>Say Something.</b> Type anything new.</sub></td>
+    <td align="center"><sub><b>The wait.</b> Real stages, no fake progress.</sub></td>
+  </tr>
+</table>
+
 ---
 
 ## How it works
