@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The same ink as SoxTokens.ink. Flat rather than an image: the launcher
+         parallaxes background against foreground, and a flat ground means that
+         motion never reveals an edge. If the theme's ink changes, this changes
+         with it. -->
+    <color name="ic_launcher_background">#201E1D</color>
+</resources>
