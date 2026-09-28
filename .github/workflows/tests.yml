@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: phone_app
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned to the version the app is developed against. Several tests are
+      # sensitive to Flutter's test-zone behaviour (see test/test_helpers.dart),
+      # so tracking "latest" would trade a green badge for a surprising one.
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.2
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+      - run: flutter analyze --fatal-infos
+      - run: flutter test

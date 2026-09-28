@@ -2,6 +2,8 @@
 
 **An Android app that speaks for someone with aphasia — in their own voice.**
 
+[![tests](https://github.com/ScottxxMcMullen/aphasia-sox/actions/workflows/tests.yml/badge.svg)](https://github.com/ScottxxMcMullen/aphasia-sox/actions/workflows/tests.yml)
+
 Aphasia is a word-finding disorder. The person understands everything said to
 them and knows exactly what they mean; the words just don't always come out.
 Aphasia SOX gives them a phone they can tap instead, and what comes out of it
@@ -123,7 +125,7 @@ commented at the site where it applies, and the shared shapes live in
 [`test/test_helpers.dart`](phone_app/test/test_helpers.dart). The comments look
 like over-explanation until you have waited on a test that will never return.
 
-99 tests.
+101 tests, run on every push.
 
 ---
 

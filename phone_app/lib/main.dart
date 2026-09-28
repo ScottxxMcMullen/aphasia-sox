@@ -55,13 +55,21 @@ Future<void> main() async {
 /// spec, this app has no background/automatic sync — an existing local
 /// library is left alone until the user taps "Sync library" on the
 /// Library screen, or saves a phrase via Say Something or Library.
-Future<void> syncIfLibraryEmpty(SyncService syncService, LibraryStore libraryStore) async {
+Future<void> syncIfLibraryEmpty(
+  SyncService syncService,
+  LibraryStore libraryStore,
+  SettingsStore settingsStore,
+) async {
   final existing = await libraryStore.manifest();
   if (existing.isNotEmpty) {
     return;
   }
   try {
     await syncService.sync();
+    // Recorded here as well as on the Library screen's own Sync button: this
+    // is a real sync, and without it the Library reports "Never synced" to
+    // someone looking at a library that plainly did sync.
+    await settingsStore.markSynced();
   } catch (_) {
     // No local library yet and the server's unreachable at launch — the
     // Library screen's manual "Sync" button covers this once
@@ -166,7 +174,11 @@ class _AppShellState extends State<AppShell> {
     // Un-awaited: this is the one-time first-launch sync-if-empty check,
     // moved here from main() so it no longer blocks first paint. Its own
     // "only sync when empty" logic still lives in syncIfLibraryEmpty.
-    syncIfLibraryEmpty(widget.syncService, widget.libraryStore).then((_) {
+    syncIfLibraryEmpty(
+      widget.syncService,
+      widget.libraryStore,
+      widget.settingsStore,
+    ).then((_) {
       if (!mounted) return;
       setState(() => _libraryRevision++);
     });
